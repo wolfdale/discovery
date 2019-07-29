@@ -1,2 +1,2 @@
 # discovery
-Microservice discovery
+Edge Server for microservice discovery
