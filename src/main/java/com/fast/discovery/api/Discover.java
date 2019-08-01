@@ -4,24 +4,22 @@ import com.fast.discovery.dto.Acknowledgement;
 import com.fast.discovery.dto.ServiceRegistry;
 import com.fast.discovery.servicemanager.ServiceHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 
-public class Registry {
-
-    @Autowired
-    ServiceHandler sh;
-
-
+public class Discover {
+    //TODO Autowiring
     @PutMapping(value = "/register")
     public Acknowledgement registerService(@RequestBody ServiceRegistry serviceRegistry) {
+        ServiceHandler discoveryService = new ServiceHandler();
+        return discoveryService.serviceRegistration(serviceRegistry);
+    }
 
-        return sh.serviceRegistration();
-
+    @GetMapping(value = "/data")
+    public String showData() {
+        //ToDo
+        return null;
     }
 
 }
