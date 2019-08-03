@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 public class DiscoveryApplication {
     public static void main(String[] args) {
         SpringApplication.run(DiscoveryApplication.class, args);
-        System.out.print("Discovery Service..");
     }
 
 }

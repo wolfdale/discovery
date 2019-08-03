@@ -18,8 +18,9 @@ public class Discover {
 
     @GetMapping(value = "/data")
     public String showData() {
-        //ToDo
-        return null;
+        ServiceHandler discoveryService = new ServiceHandler();
+
+        return discoveryService.showData();
     }
 
 }
