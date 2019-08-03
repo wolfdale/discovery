@@ -1,50 +1,66 @@
 package com.fast.discovery.dto;
 
+import java.util.List;
+
 public class ServiceRegistry {
 
     private String serviceName;
-    private String instanceId;
-    private String instanceIpAddr;
-    private String health;
-    private String heartBeatUrl;
+    private List<InstanceInfo> instanceInformation;
+
+    public static class InstanceInfo {
+        private String instanceId;
+        private String instanceIpAddr;
+        private String health;
+        private String heartBeatUrl;
+
+        public String getInstanceId() {
+            return instanceId;
+        }
+
+        public void setInstanceId(String instanceId) {
+            this.instanceId = instanceId;
+        }
+
+        public String getInstanceIpAddr() {
+            return instanceIpAddr;
+        }
+
+        public void setInstanceIpAddr(String instanceIpAddr) {
+            this.instanceIpAddr = instanceIpAddr;
+        }
+
+        public String getHealth() {
+            return health;
+        }
+
+        public void setHealth(String health) {
+            this.health = health;
+        }
+
+        public String getHeartBeatUrl() {
+            return heartBeatUrl;
+        }
+
+        public void setHeartBeatUrl(String heartBeatUrl) {
+            this.heartBeatUrl = heartBeatUrl;
+        }
+    }
 
     public void setServiceName(String serviceName) {
         this.serviceName = serviceName;
-    }
-
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
-    }
-
-    public void setInstanceIpAddr(String instanceIpAddr) {
-        this.instanceIpAddr = instanceIpAddr;
-    }
-
-    public void setHealth(String health) {
-        this.health = health;
-    }
-
-    public void setHeartBeatUrl(String heartBeatUrl) {
-        this.heartBeatUrl = heartBeatUrl;
     }
 
     public String getServiceName() {
         return serviceName;
     }
 
-    public String getInstanceId() {
-        return instanceId;
+    public List<InstanceInfo> getInstanceInformation() {
+        return instanceInformation;
     }
 
-    public String getInstanceIpAddr() {
-        return instanceIpAddr;
+    public void setInstanceInformation(List<InstanceInfo> instanceInformation) {
+        this.instanceInformation = instanceInformation;
     }
 
-    public String getHealth() {
-        return health;
-    }
 
-    public String getHeartBeatUrl() {
-        return heartBeatUrl;
-    }
 }
