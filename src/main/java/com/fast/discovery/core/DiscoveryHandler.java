@@ -13,8 +13,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DiscoveryHandler {
     private static final Logger log = LogManager.getLogger(DiscoveryHandler.class);
 
-    private static ConcurrentHashMap<String, List<ServiceRegistry.InstanceInfo>> registry =
-            new ConcurrentHashMap<String, List<ServiceRegistry.InstanceInfo>>();
+    private static ConcurrentHashMap<String, ServiceRegistry.InstanceInfo> registry =
+            new ConcurrentHashMap<String, ServiceRegistry.InstanceInfo>();
 
     public Acknowledgement serviceRegistration(ServiceRegistry serviceRegistry) {
         Acknowledgement ack = new Acknowledgement();
