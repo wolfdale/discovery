@@ -1,7 +1,7 @@
 {
-	"serviceName": "s1",
+	"instanceId": "X02",
 	"instanceInformation": [{
-		"instanceId": "1",
+		"serviceName": "Crasher-R1",
 		"instanceIpAddr": "192.168.1.50",
 		"health": "ACTIVE",
 		"heartBeatUrl": "/nop"
