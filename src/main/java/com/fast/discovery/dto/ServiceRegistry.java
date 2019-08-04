@@ -2,23 +2,26 @@ package com.fast.discovery.dto;
 
 import java.util.List;
 
+/**
+ * @Desc - Microservice Registry DTO
+ * @Author - wolfdale
+ */
 public class ServiceRegistry {
-
-    private String serviceName;
+    private String instanceId;
     private List<InstanceInfo> instanceInformation;
 
     public static class InstanceInfo {
-        private String instanceId;
+        private String serviceName;
         private String instanceIpAddr;
         private String health;
         private String heartBeatUrl;
 
-        public String getInstanceId() {
-            return instanceId;
+        public String getServiceName() {
+            return serviceName;
         }
 
-        public void setInstanceId(String instanceId) {
-            this.instanceId = instanceId;
+        public void setServiceName(String serviceName) {
+            this.serviceName = serviceName;
         }
 
         public String getInstanceIpAddr() {
@@ -46,12 +49,12 @@ public class ServiceRegistry {
         }
     }
 
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    public String getInstanceId() {
+        return instanceId;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
     }
 
     public List<InstanceInfo> getInstanceInformation() {
@@ -61,6 +64,4 @@ public class ServiceRegistry {
     public void setInstanceInformation(List<InstanceInfo> instanceInformation) {
         this.instanceInformation = instanceInformation;
     }
-
-
 }
