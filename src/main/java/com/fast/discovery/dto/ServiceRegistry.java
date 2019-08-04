@@ -1,14 +1,12 @@
 package com.fast.discovery.dto;
 
-import java.util.List;
-
 /**
  * @Desc - Microservice Registry DTO
  * @Author - wolfdale
  */
 public class ServiceRegistry {
     private String instanceId;
-    private List<InstanceInfo> instanceInformation;
+    private InstanceInfo instanceInformation;
 
     public static class InstanceInfo {
         private String serviceName;
@@ -57,11 +55,11 @@ public class ServiceRegistry {
         this.instanceId = instanceId;
     }
 
-    public List<InstanceInfo> getInstanceInformation() {
+    public InstanceInfo getInstanceInformation() {
         return instanceInformation;
     }
 
-    public void setInstanceInformation(List<InstanceInfo> instanceInformation) {
+    public void setInstanceInformation(InstanceInfo instanceInformation) {
         this.instanceInformation = instanceInformation;
     }
 }
