@@ -7,7 +7,6 @@ import com.google.gson.Gson;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class DiscoveryHandler {
@@ -17,18 +16,14 @@ public class DiscoveryHandler {
             new ConcurrentHashMap<String, ServiceRegistry.InstanceInfo>();
 
     public Acknowledgement serviceRegistration(ServiceRegistry serviceRegistry) {
-        Acknowledgement ack = new Acknowledgement();
         if (registry.get(serviceRegistry.getInstanceId()) == null) {
             log.info("Registering Instance ID : " + serviceRegistry.getInstanceId());
             registry.put(serviceRegistry.getInstanceId(), serviceRegistry.getInstanceInformation());
-            ack.setAck(true);
-            ack.setMsg(Utilities.SERVICE_REGISTERED);
+            return new Acknowledgement.AckBuilder().ack(true).msg(Utilities.SERVICE_REGISTERED).build();
         } else {
             log.error("Instance ID {} is already registered.", serviceRegistry.getInstanceId());
-            ack.setAck(false);
-            ack.setMsg(Utilities.SERVICE_ALREADY_REGISTERED);
+            return new Acknowledgement.AckBuilder().ack(false).msg(Utilities.SERVICE_ALREADY_REGISTERED).build();
         }
-        return ack;
     }
 
     public String buildNetworkGraph() {
