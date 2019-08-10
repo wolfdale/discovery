@@ -12,10 +12,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DiscoveryHandler {
     private static final Logger log = LogManager.getLogger(DiscoveryHandler.class);
 
-    private static ConcurrentHashMap<String, ServiceRegistry.InstanceInfo> registry =
-            new ConcurrentHashMap<String, ServiceRegistry.InstanceInfo>();
-
+    /**
+     *
+     * @param serviceRegistry
+     * @return Ack
+     */
     public Acknowledgement serviceRegistration(ServiceRegistry serviceRegistry) {
+        ConcurrentHashMap<String, ServiceRegistry.InstanceInfo> registry = RegisteryMap.getRegistry();
         if (registry.get(serviceRegistry.getInstanceId()) == null) {
             log.info("Registering Instance ID : " + serviceRegistry.getInstanceId());
             registry.put(serviceRegistry.getInstanceId(), serviceRegistry.getInstanceInformation());
@@ -26,10 +29,17 @@ public class DiscoveryHandler {
         }
     }
 
+    /**
+     * This is currently basic network graph
+     * @return JSON Graph of network
+     */
     public String buildNetworkGraph() {
         log.info("Building micro service network graph..");
+        ConcurrentHashMap<String, ServiceRegistry.InstanceInfo> registry = RegisteryMap.getRegistry();
         Gson gson = new Gson();
         String jsonBlockPerInstance = gson.toJson(registry);
         return jsonBlockPerInstance;
     }
+
+
 }
