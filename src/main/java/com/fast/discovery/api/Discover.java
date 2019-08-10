@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Discover {
-    //TODO Autowiring
+
     @Autowired
     DiscoveryHandler discoveryHandler;
+
     @PutMapping(value = "/register")
     public Acknowledgement registerService(@RequestBody ServiceRegistry serviceRegistry) {
         return discoveryHandler.serviceRegistration(serviceRegistry);
