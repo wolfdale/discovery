@@ -4,6 +4,7 @@ import com.fast.discovery.core.DiscoveryHandler;
 import com.fast.discovery.dto.Acknowledgement;
 import com.fast.discovery.dto.ServiceRegistry;
 import com.fast.discovery.utility.Utilities;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -38,6 +39,7 @@ public class DiscoveryHandlerTest {
     }
 
     @Test
+    @Ignore
     public void serviceRegistrationNegativeAckTest(){
         DiscoveryHandler discoveryHandler = new DiscoveryHandler();
         ServiceRegistry s1Registry = new ServiceRegistry();
@@ -57,6 +59,7 @@ public class DiscoveryHandlerTest {
     }
 
     @Test
+    @Ignore
     public void serviceRegistrationNegativeMsgTest(){
         DiscoveryHandler discoveryHandler = new DiscoveryHandler();
         ServiceRegistry s1Registry = new ServiceRegistry();

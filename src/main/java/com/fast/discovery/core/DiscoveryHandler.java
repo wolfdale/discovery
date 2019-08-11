@@ -12,24 +12,29 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DiscoveryHandler {
     private static final Logger log = LogManager.getLogger(DiscoveryHandler.class);
 
-    private static ConcurrentHashMap<String, ServiceRegistry.InstanceInfo> registry =
-            new ConcurrentHashMap<String, ServiceRegistry.InstanceInfo>();
-
+    /**
+     *
+     * @param serviceRegistry
+     * @return Ack
+     */
     public Acknowledgement serviceRegistration(ServiceRegistry serviceRegistry) {
-        if (registry.get(serviceRegistry.getInstanceId()) == null) {
-            log.info("Registering Instance ID : " + serviceRegistry.getInstanceId());
-            registry.put(serviceRegistry.getInstanceId(), serviceRegistry.getInstanceInformation());
-            return new Acknowledgement.AckBuilder().ack(true).msg(Utilities.SERVICE_REGISTERED).build();
-        } else {
-            log.error("Instance ID {} is already registered.", serviceRegistry.getInstanceId());
-            return new Acknowledgement.AckBuilder().ack(false).msg(Utilities.SERVICE_ALREADY_REGISTERED).build();
-        }
+        ConcurrentHashMap<String, ServiceRegistry.InstanceInfo> registry = RegisteryMap.getRegistry();
+        log.info("Registering Instance ID : " + serviceRegistry.getInstanceId());
+        registry.put(serviceRegistry.getInstanceId(), serviceRegistry.getInstanceInformation());
+        return new Acknowledgement.AckBuilder().ack(true).msg(Utilities.SERVICE_REGISTERED).build();
     }
 
+    /**
+     * This is currently basic network graph
+     * @return JSON Graph of network
+     */
     public String buildNetworkGraph() {
         log.info("Building micro service network graph..");
+        ConcurrentHashMap<String, ServiceRegistry.InstanceInfo> registry = RegisteryMap.getRegistry();
         Gson gson = new Gson();
         String jsonBlockPerInstance = gson.toJson(registry);
         return jsonBlockPerInstance;
     }
+
+
 }
