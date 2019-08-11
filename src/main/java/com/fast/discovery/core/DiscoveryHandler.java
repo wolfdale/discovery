@@ -19,14 +19,9 @@ public class DiscoveryHandler {
      */
     public Acknowledgement serviceRegistration(ServiceRegistry serviceRegistry) {
         ConcurrentHashMap<String, ServiceRegistry.InstanceInfo> registry = RegisteryMap.getRegistry();
-        if (registry.get(serviceRegistry.getInstanceId()) == null) {
-            log.info("Registering Instance ID : " + serviceRegistry.getInstanceId());
-            registry.put(serviceRegistry.getInstanceId(), serviceRegistry.getInstanceInformation());
-            return new Acknowledgement.AckBuilder().ack(true).msg(Utilities.SERVICE_REGISTERED).build();
-        } else {
-            log.error("Instance ID {} is already registered.", serviceRegistry.getInstanceId());
-            return new Acknowledgement.AckBuilder().ack(false).msg(Utilities.SERVICE_ALREADY_REGISTERED).build();
-        }
+        log.info("Registering Instance ID : " + serviceRegistry.getInstanceId());
+        registry.put(serviceRegistry.getInstanceId(), serviceRegistry.getInstanceInformation());
+        return new Acknowledgement.AckBuilder().ack(true).msg(Utilities.SERVICE_REGISTERED).build();
     }
 
     /**
