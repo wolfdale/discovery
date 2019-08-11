@@ -1,5 +1,7 @@
 package com.fast.discovery.dto;
 
+import java.util.List;
+
 /**
  * @Desc - Microservice Registry DTO
  * @Author - wolfdale
@@ -13,6 +15,15 @@ public class ServiceRegistry {
         private String instanceIpAddr;
         private String health;
         private String heartBeatUrl;
+        private List<String> dependsOn;
+
+        public List<String> getDependsOn() {
+            return dependsOn;
+        }
+
+        public void setDependsOn(List<String> dependsOn) {
+            this.dependsOn = dependsOn;
+        }
 
         public String getServiceName() {
             return serviceName;
