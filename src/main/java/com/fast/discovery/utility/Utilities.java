@@ -6,6 +6,6 @@ public class Utilities {
     public static String SERVICE_REGISTERED = "Service registered with Discovery !";
 
     /* Service registration NACK */
-    public static String SERVICE_ALREADY_REGISTERED = "This service already registered with Discovery.";
+    public static String SERVICE_UPDATED = "Service is updated with Discovery.";
 
 }

@@ -1,7 +1,7 @@
 package com.fast.discovery.dto;
 
 /**
- * @Desc - ACK/NACK class for microservice registry.
+ * @Desc - ACK/NACK class for micro service registry.
  * @Author - wolfdale
  */
 public class Acknowledgement {
@@ -33,7 +33,6 @@ public class Acknowledgement {
         public AckBuilder msg(String msg) {
             this.msg = msg;
             return this;
-
         }
 
         public Acknowledgement build() {
