@@ -21,7 +21,7 @@ public class Discover {
     }
 
     @GetMapping(value = "/netgraph")
-    public String showData() {
-        return discoveryHandler.buildNetworkGraph();
+    public void showData() {
+        discoveryHandler.buildNetworkGraph();
     }
 }
