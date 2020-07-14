@@ -7,6 +7,9 @@ import com.fast.discovery.utility.Utilities;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 import static org.junit.Assert.*;
 
 /**
@@ -14,19 +17,18 @@ import static org.junit.Assert.*;
  * @Author -
  */
 public class DiscoveryHandlerTest {
-
-/*    @Test
+    /*
+    @Test
     @Ignore
     public void serviceRegistrationPositiveAckTest(){
         DiscoveryHandler discoveryHandler = new DiscoveryHandler();
         ServiceRegistry sRegistry = new ServiceRegistry();
-        sRegistry.setInstanceId("UniqueInstanceId");
-        ServiceRegistry.InstanceInfo insInfo = new ServiceRegistry.InstanceInfo();
-        insInfo.setServiceName("Dummy Micro-Service");
-        sRegistry.setInstanceInformation(insInfo);
+        sRegistry.setServiceName("R1");
+        sRegistry.setDependsOn();
         Acknowledgement ack = discoveryHandler.serviceRegistration(sRegistry);
         assertTrue(ack.isAck());
     }
+
     @Test
     @Ignore
     public void serviceRegistrationPositiveMsgTest(){
@@ -78,5 +80,7 @@ public class DiscoveryHandlerTest {
         s1Registry.setInstanceInformation(insInfo2);
         Acknowledgement ackS2 = discoveryHandler.serviceRegistration(s1Registry);
         assertEquals(ackS2.getMsg(), Utilities.SERVICE_ALREADY_REGISTERED);
-    }*/
+    }
+    
+     */
 }
